@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>과제 3 - 자바스크립트 프로그래밍(1)</title>
+</head>
+<body>
+<h3>2진수 -> 16진수</h3>
+<script>
+    var bin = prompt("2진수를 입력하시오.",0);
+    var bin2 = bin;
+    var dec;
+    var hex=0;
+    var n;
+    var j = 1;
+    for(var i=10; j<10 ;j*=2){
+        n = bin2 % i;
+        dec = n * j;
+        //document.write(n+"*"+j+"="+dec + ","+bin2+"    ");
+        //document.write(dec)
+        hex += dec;
+        bin2 = Math.floor(bin2/10);
+        //document.write(dec + "\n");
+        //document.write("bin2 = "+bin2.toFixed(0) +" ");
+    }
+    switch(hex){
+            case 10:
+                hex = "A";
+                break;
+            case 11:
+                hex = "B";
+                break;
+            case 12:
+                hex = "C";
+                break;
+            case 13:
+                hex = "D";
+                break;
+            case 14:
+                hex = "E";
+                break;
+            case 15:
+                hex = "F";
+                break;
+        }
+    document.write(hex)
+
+</script>
+</body>
+</html>
