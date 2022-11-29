@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 프로그래밍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function transform(){
+            function bintohex(bin) {
+        var bin2 = bin;
+        var dec;
+        var hex=0;
+        var n;
+        var j = 1;
+        for(var i=10; j<10 ;j*=2){
+            n = bin2 % i;
+            dec = n * j;
+            //document.write(n+"*"+j+"="+dec + ","+bin2+"    ");
+            //document.write(dec)
+            hex += dec;
+            bin2 = Math.floor(bin2/10);
+            //document.write(dec + "\n");
+            //document.write("bin2 = "+bin2.toFixed(0) +" ");
+        }
+        switch(hex){
+                case 10:
+                    hex = "A";
+                    break;
+                case 11:
+                    hex = "B";
+                    break;
+                case 12:
+                    hex = "C";
+                    break;
+                case 13:
+                    hex = "D";
+                    break;
+                case 14:
+                    hex = "E";
+                    break;
+                case 15:
+                    hex = "F";
+                    break;
+            }
+        return hex;
+    }
+    var bin = document.getElementById("digit").value;
+    var hex=[];
+    var nu = bin;
+    for(i=10000;nu>=1;i*10000){
+        hex = hex.concat(bintohex(Math.round(nu%i)));
+        //document.write(bintohex(i+"-"+Math.round(nu%i)));
+        nu= Math.round(nu/10000);
+    }
+    hex.reverse();
+    var hexanum="";
+    for(i=0;i<hex.length;i++){
+        hexanum += hex[i];
+    }
+
+            //id "digit" 2진수->16진수 "hexanum"
+            /*var bin = document.getElementById("digit").value;
+            var bina = bin;
+            var a = [];
+            for(i=10000;bina>=1;i*10000) {
+                var bin2 = bina%i;
+                var dec=0;
+                var hex = 0;
+                var n=0;
+                for (var i = 10, j = 1; j < 10; j *= 2) {
+                    n = bin2 % i;
+                    dec = n * j;
+                    hex += dec;
+                    bin2 = Math.floor(bin2 / 10);
+                }
+                switch (hex) {
+                    case 10:
+                        hex = "A";
+                        break;
+                    case 11:
+                        hex = "B";
+                        break;
+                    case 12:
+                        hex = "C";
+                        break;
+                    case 13:
+                        hex = "D";
+                        break;
+                    case 14:
+                        hex = "E";
+                        break;
+                    case 15:
+                        hex = "F";
+                        break;
+                }
+                a += hex;
+                bina= Math.round(bina/10000);
+            }
+            hex.reverse();
+            var hexanum="";
+            for(i=0;i<hex.length;i++) {
+                hexanum +="a[i]";
+            }*/
+
+            document.getElementById("hexanum").value = hexanum;
+
+        }
+        function pascals(){
+            function new_row(prev_row) {
+                newone = [];
+                if (prev_row.length === 1) {
+                    return [1, 1];
+                } else {
+                    newone[0] = 1;
+                    for (i = 1; i <= prev_row.length - 1; i++) {
+                        newone[i] = prev_row[i - 1] + prev_row[i];
+                    }
+                    newone[prev_row.length] = 1;
+                    return newone;
+                }
+
+            }
+            var height = document.getElementById("size");
+    var prev=[];
+    switch (height) {
+        case "1":
+            prev += 1;
+            document.getElementById("draw_area").write(prev + '<br>');
+            break;
+        default:
+            for (var i = 0; i <= height; i++) {
+                for (var j = 0; j < prev.length; j++) {
+                    document.getElementById("draw_area").write(prev[j] + " ");
+                }
+                document.getElementById("draw_area").write("<br>");
+                prev = new_row(prev);
+            }
+    }
+            /*var height = document.getElementById("size");
+
+            var prev = [];
+            if(height ===1){
+                prev+=1;
+                document.getElementById("draw_area").value = prev;
+            }
+            else
+            {
+                for(var i=0;i<=height;i++) {
+                    for (var j = 0; j < prev.length; j++) {
+                        document.getElementById("draw_area").value =prev[j];
+                    }
+                    document.write("<br>");
+
+                    //prev = new_row(prev);
+                }
+
+            document.getElementById("draw_area").value =
+        }*/}
+    </script>
+</head>
+<body>
+    <div class="container-sm mt-5">
+        <div class="h3">2진수 변환기</div>
+        <div class="mb-3">
+            <label class="form-label text-primary"> 2진수:
+                <input type="text" id = "digit" size="20">
+            </label>
+            <button type="button" class="btn btn-dart" onclick="transform()"> ===> </button>
+            <label class="form-label text-primary"> 16진수:
+                <input type="text" id="hexanum" size="20" readonly value="">
+            </label>
+        </div>
+        <hr>
+        <div class="h3">파스칼 삼각형</div>
+        <div class="mb-3">
+            <label class="form-label text-primary"> 삼각형 높이
+                <input type="number" id="size" min="1" max="20" step="1" value="1">
+                <button type="button" class="btn btn-success" onclick="pascals()">그리기</button>
+            </label>
+        </div>
+        <div class="text-bg-secondary " id="draw_area">
+        </div>
+    </div>
+</body>
+</html>
