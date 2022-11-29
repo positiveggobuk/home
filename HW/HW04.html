@@ -122,23 +122,29 @@
                 }
 
             }
-            var height = document.getElementById("size");
-    var prev=[];
-    switch (height) {
-        case "1":
-            prev += 1;
-            document.getElementById("draw_area").write(prev + '<br>');
-            break;
-        default:
-            for (var i = 0; i <= height; i++) {
-                for (var j = 0; j < prev.length; j++) {
-                    document.getElementById("draw_area").write(prev[j] + " ");
-                }
-                document.getElementById("draw_area").write("<br>");
-                prev = new_row(prev);
+            var height = document.getElementById("size").value;
+            var prev=[];
+            var a="";
+            switch (height) {
+                case "1":
+                    document.getElementById("draw_area").innerHTML = '1';
+                    break;
+                case "2":
+                    document.getElementById("draw_area").innerHTML = "1"+"<br>"+"1 1";
+                    break;
+                default:
+                    for (i = 0; i <= height; i++) {
+                        a = "";
+                        for (j = 0; j < prev.length; j++) {
+                            a += prev[j];
+                            a += " ";
+                        }
+                        document.getElementById("draw_area").innerHTML += a+ "<br>";
+                        prev = new_row(prev);
+                    }
             }
-    }
-            /*var height = document.getElementById("size");
+    //document.getElementById("draw_area").innerHTML = ""+height+" ";
+            /* var height = document.getElementById("size");
 
             var prev = [];
             if(height ===1){
