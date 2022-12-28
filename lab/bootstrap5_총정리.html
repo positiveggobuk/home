@@ -16,15 +16,15 @@
     <li class="mb-2"><a href = "#color" class="p-1 text-bg-dark text-decoration-none border rounded">색 예제</a></li>
     <li class="mb-2"><a href = "#table" class="p-1 text-bg-dark text-decoration-none border rounded">테이블 예제</a></li>
     <li class="mb-2"><a href = "#button" class="p-1 text-bg-dark  text-decoration-none border rounded">버튼 예제</a></li>
-    <li class="mb-2"><a href = "#pagination" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#cards" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#dropdown" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#collapse" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#nav" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#carousel" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#tooltips" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#flex" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
-    <li class="mb-2"><a href = "#form" class="p-1 text-bg-dark text-decoration-none border rounded">이미지 예제</a></li>
+    <li class="mb-2"><a href = "#pagination" class="p-1 text-bg-dark text-decoration-none border rounded">pagination 예제</a></li>
+    <li class="mb-2"><a href = "#cards" class="p-1 text-bg-dark text-decoration-none border rounded">카드 예제</a></li>
+    <li class="mb-2"><a href = "#dropdown" class="p-1 text-bg-dark text-decoration-none border rounded">dropdown 예제</a></li>
+    <li class="mb-2"><a href = "#collapse" class="p-1 text-bg-dark text-decoration-none border rounded">collapse 예제</a></li>
+    <li class="mb-2"><a href = "#nav" class="p-1 text-bg-dark text-decoration-none border rounded">nav 예제</a></li>
+    <li class="mb-2"><a href = "#carousel" class="p-1 text-bg-dark text-decoration-none border rounded">carousel 예제</a></li>
+    <li class="mb-2"><a href = "#tooltips" class="p-1 text-bg-dark text-decoration-none border rounded">tooltips 예제</a></li>
+    <li class="mb-2"><a href = "#flex" class="p-1 text-bg-dark text-decoration-none border rounded">flex 예제</a></li>
+    <li class="mb-2"><a href = "#form" class="p-1 text-bg-dark text-decoration-none border rounded">form 예제</a></li>
 </ul>
 
 
@@ -250,5 +250,40 @@ href="/ports/index.html">Portfolios</a>
 </div>
 </div>
 </nav>
+
+
+<hr id="carousel">
+<div data-include-path="bts_concert.html"></div>
+<script src="js/get_tags.js"></script>
+
+<div class="container mt-3">
+<h2>BTS Concerts</h2>
+<ul>
+<li>SoFi stadium in Los Angeles, Nov. 27 ~ Dec. 1, 2021.</li>
+<li>Seoul, Mar. 10 ~ Mar. 13, 2022 </li>
+<li>Busan, Oct. 15, 2022</li>
+</ul>
+</div>
+
+<hr id="tooltips">
+<script>
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl)
+}) ;
+</script>
+<div class="container mt-3">
+<h3>Tooltip Example</h3>
+<button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Have Fun!">
+Click me </button>
+</div>
+
+
+<hr id="flex">
+<div class="d-flex mb-3">
+<div class="p-2 flex-fill bg-info">Flex item 1</div>
+<div class="p-2 flex-fill bg-warning">Flex item 2</div>
+<div class="p-2 flex-fill bg-primary">Flex item 3</div>
+</div>
 </body>
 </html>
